@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/Button"
+        android:layout_width="283dp"
+        android:layout_height="wrap_content"
+        android:text="@string/button" />
+
+    <Button
+        android:id="@+id/Second_Activity_Button"
+        android:layout_width="283dp"
+        android:layout_height="wrap_content"
+        android:text="@string/secondActivityButton" />
+
+    <Button
+        android:id="@+id/Remove_Button"
+        android:layout_width="283dp"
+        android:layout_height="wrap_content"
+        android:text="@string/removeButton" />
+
+    <TextView
+        android:id="@+id/Text"
+        android:layout_width="217dp"
+        android:layout_height="43dp"
+        android:text="@string/textField" />
+
+</LinearLayout>
