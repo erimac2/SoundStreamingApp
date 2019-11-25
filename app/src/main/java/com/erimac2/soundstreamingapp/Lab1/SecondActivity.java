@@ -8,9 +8,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.erimac2.soundstreamingapp.ArtistActivity;
-import com.erimac2.soundstreamingapp.ArtistItem;
-import com.erimac2.soundstreamingapp.PlayerActivity;
 import com.erimac2.soundstreamingapp.R;
 
 import java.io.Serializable;

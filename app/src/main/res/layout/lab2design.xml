@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/send_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send request"
+        android:textColor="#fff"
+        android:padding="10dp"
+        android:background="@drawable/button_default"></Button>
+    <com.erimac2.soundstreamingapp.Lab2.IndicatingView
+        android:id="@+id/generated_graphic"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:background="#888888"></com.erimac2.soundstreamingapp.Lab2.IndicatingView>
+    <com.erimac2.soundstreamingapp.Lab2.IndicatingViewBar
+        android:id="@+id/generated_graphic_bar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:background="#888888"></com.erimac2.soundstreamingapp.Lab2.IndicatingViewBar>
+    <ProgressBar
+        android:id="@+id/simpleProgressBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp" />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_blue_dark"></TextView>
+    <TextView
+        android:id="@+id/body_text"
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@android:color/black"></TextView>
+
+</LinearLayout>

@@ -1,14 +1,15 @@
 <resources>
-    <string name="app_name">SoundStreamingApp</string>
 
     <string name="button">Button</string>
     <string name="secondActivityButton">Second Activity</string>
     <string name="textField">Text Field</string>
     <string name="removeButton">Remove</string>
-    <string name="loginButton">Login</string>
     <string name="loginError">Login Error</string>
     <string name="sortButton">Sort</string>
-    <string name="editText">Filter</string>
     <string name="playButton">Play</string>
     <string name="stopButton">Stop</string>
+    <string name="logout">Logout</string>
+    <string name="notification">Notification</string>
+    <string name="activity_home">%1$s - Home</string>
+    <string name="default_duration">0:00</string>
 </resources>

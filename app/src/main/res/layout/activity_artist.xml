@@ -1,31 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:com.deezer.sdk.tools="http://schemas.android.com/com.deezer.sdk.tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    com.deezer.sdk.tools:context="com.erimac2.soundstreamingapp.RadioActivity" >
+    
+    <include
+        android:id="@+id/player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        layout="@layout/activity_player" />
 
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="510dp"
-        app:layout_constraintBottom_toTopOf="@+id/Button_sort" />
-
-    <Button
-        android:id="@+id/Button_sort"
-        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/sortButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/player"
+        android:layout_marginBottom="60dp"/>
 
-    <EditText
-        android:id="@+id/Filter"
-        android:layout_width="200dp"
+    <LinearLayout
+        android:id="@+id/options"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/Button_sort"
-        app:layout_constraintTop_toBottomOf="@+id/list" />
+        android:orientation="horizontal"
+        android:layout_below="@id/list"
+        android:layout_marginTop="-60dp">
+
+        <Button
+
+            android:id="@+id/Button_sort"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:gravity="center_horizontal"
+            android:text="@string/sortButton"
+            android:textAlignment="center"
+            android:background="@color/colorMusicBackground"/>
+
+        <EditText
+            android:id="@+id/Filter"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
