@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:padding="10dp">
+
+            <TextView
+                android:text="x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:paddingRight="5dp"></TextView>
+
+            <TextView
+                android:id="@+id/x_value"
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+        </TableRow>
+
+        <TableRow
+            android:padding="10dp">
+
+            <TextView
+                android:text="y"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:paddingRight="5dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/y_value"
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </TableRow>
+
+        <TableRow
+            android:padding="10dp">
+            <TextView
+                android:text="z"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:paddingRight="5dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/z_value"
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/start_and_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start">
+
+    </Button>
+    <TextView
+        android:id="@+id/orient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""></TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="25dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TableRow
+                android:padding="10dp">
+                <TextView
+                    android:text="Coordinates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="5dp"
+                    android:paddingRight="5dp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/coordinates"
+                    android:text="-"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/take_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take Photo">
+
+    </Button>
+    <FrameLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextureView
+            android:id="@+id/textureView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextureView>
+    </FrameLayout>
+</LinearLayout>

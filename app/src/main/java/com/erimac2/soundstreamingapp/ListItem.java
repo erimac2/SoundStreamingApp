@@ -1,11 +1,11 @@
 package com.erimac2.soundstreamingapp;
 
-public class ArtistItem {
+public class ListItem {
     private String title;
     private String imageLink;
     private Long id;
 
-    public ArtistItem(String title, String imageLink, Long id)
+    public ListItem(String title, String imageLink, Long id)
     {
         this.title = title;
         this.imageLink = imageLink;

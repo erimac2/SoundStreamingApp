@@ -97,13 +97,9 @@ public class RadioAdapter extends BaseExpandableListAdapter {
 
         Radio radio = getChild(groupPosition, childPosition);
 
-
-
         TextView textView = (TextView) view.findViewById(android.R.id.text1);
 
         textView.setText(radio.getTitle());
-
-
 
         ImageView imageView = view.findViewById(android.R.id.icon);
 

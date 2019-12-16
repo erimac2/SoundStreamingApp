@@ -16,11 +16,11 @@ import com.koushikdutta.ion.Ion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArtistAdapter extends ArrayAdapter<ArtistItem> implements Filterable {
+public class ListAdapter extends ArrayAdapter<ListItem> implements Filterable {
 
-    List<ArtistItem> objects;
+    List<ListItem> objects;
 
-    public ArtistAdapter(Context context, List<ArtistItem> objects) {
+    public ListAdapter(Context context, List<ListItem> objects) {
         super(context, R.layout.listitemdesign, objects);
         this.objects = new ArrayList<>(objects);
     }
@@ -29,7 +29,7 @@ public class ArtistAdapter extends ArrayAdapter<ArtistItem> implements Filterabl
         protected FilterResults performFiltering(CharSequence constraint) {
 
             FilterResults results = new FilterResults();
-            List<ArtistItem> suggestions = new ArrayList<>();
+            List<ListItem> suggestions = new ArrayList<>();
 
             if (constraint == null && constraint.length() == 0)
             {
@@ -39,7 +39,7 @@ public class ArtistAdapter extends ArrayAdapter<ArtistItem> implements Filterabl
             {
                 String filterPattern = constraint.toString().toLowerCase();
 
-                for (ArtistItem item : objects)
+                for (ListItem item : objects)
                 {
                     if (item.getTitle().toLowerCase().startsWith(filterPattern))
                     {
@@ -74,7 +74,7 @@ public class ArtistAdapter extends ArrayAdapter<ArtistItem> implements Filterabl
         TextView title = view.findViewById(R.id.Artist_title);
         ImageView image = view.findViewById(R.id.Artist_image);
 
-        ArtistItem item = getItem(position);
+        ListItem item = getItem(position);
 
         title.setText(item.getTitle());
         Log.i("ION", item.getImageLink());

@@ -19,35 +19,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_above="@+id/player"
-        android:layout_marginBottom="60dp"/>
+        android:layout_above="@+id/player" />
 
-    <LinearLayout
-        android:id="@+id/options"
+    <EditText
+        android:id="@+id/Filter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/list"
-        android:layout_marginTop="-60dp">
+        android:layout_marginTop="-45dp">
 
-        <Button
-
-            android:id="@+id/Button_sort"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="50dp"
-            android:gravity="center_horizontal"
-            android:text="@string/sortButton"
-            android:textAlignment="center"
-            android:background="@color/colorMusicBackground"/>
-
-        <EditText
-            android:id="@+id/Filter"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
+    </EditText>
 
 
 </RelativeLayout>

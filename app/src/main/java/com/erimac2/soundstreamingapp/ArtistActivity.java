@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -32,23 +33,15 @@ import java.util.List;
 
 public class ArtistActivity extends PlayerActivity implements RadioPlayerListener {
 
-    public static final String EXTRA_TITLE = "com.erimac2.soundstreamingapp.EXTRA_TITLE";
-    public static final String EXTRA_ID = "com.erimac2.soundstreamingapp.EXTRA_ID";
-    public static final String EXTRA_LINK = "com.erimac2.soundstreamingapp.EXTRA_LINK";
-
-
     private List<Artist> artistList = new ArrayList<Artist>();
     Boolean ascending = true;
 
-    Boolean play = true;
-
     private ArtistRadioPlayer player;
 
-    private Button sortButton;
     private EditText filter;
     private ListView listView;
-    private ArtistAdapter adapter;
-    private final ArrayList<ArtistItem> items = new ArrayList<>();
+    private ListAdapter adapter;
+    private final ArrayList<ListItem> items = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,15 +53,7 @@ public class ArtistActivity extends PlayerActivity implements RadioPlayerListene
 
 
         listView = findViewById(R.id.list);
-        sortButton = findViewById(R.id.Button_sort);
         filter = findViewById(R.id.Filter);
-        sortButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                sortArrayList(ascending);
-                ascending = !ascending;
-            }
-        });
 
         Filter();
 
@@ -102,6 +87,32 @@ public class ArtistActivity extends PlayerActivity implements RadioPlayerListene
             handleError(e);
         }
     }
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu)
+    {
+        super.onCreateOptionsMenu(menu);
+
+        getMenuInflater().inflate(R.menu.sort, menu);
+
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item)
+    {
+        boolean res = true;
+
+        switch (item.getItemId())
+        {
+            case R.id.sort:
+                sortArrayList(ascending);
+                ascending = !ascending;
+                break;
+            default:
+                res = super.onOptionsItemSelected(item);
+                break;
+        }
+        return res;
+    }
     private void Filter()
     {
         filter.addTextChangedListener(new TextWatcher() {
@@ -123,9 +134,9 @@ public class ArtistActivity extends PlayerActivity implements RadioPlayerListene
     private void sortArrayList(Boolean ascending)
     {
         if (ascending) {
-            Collections.sort(items, new Comparator<ArtistItem>() {
+            Collections.sort(items, new Comparator<ListItem>() {
                 @Override
-                public int compare(ArtistItem item1, ArtistItem item2) {
+                public int compare(ListItem item1, ListItem item2) {
                     return item1.getTitle().compareTo(item2.getTitle());
                 }
             });
@@ -142,15 +153,15 @@ public class ArtistActivity extends PlayerActivity implements RadioPlayerListene
             public void onResult(Object result, Object requestId) {
                 artistList = (ArrayList<Artist>) result;
                 for (Artist artist : artistList) {
-                    items.add(new ArtistItem(artist.getName(), artist.getBigImageUrl(), artist.getId()));
+                    items.add(new ListItem(artist.getName(), artist.getBigImageUrl(), artist.getId()));
                 }
-                adapter = new ArtistAdapter(ArtistActivity.this, items);
+                adapter = new ListAdapter(ArtistActivity.this, items);
                 listView.setTextFilterEnabled(true);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        ArtistItem item = (ArtistItem) parent.getItemAtPosition(position);
+                        ListItem item = (ListItem) parent.getItemAtPosition(position);
                         player.playArtistRadio(item.getId());
                         setPlayerVisible(true);
                     }
@@ -202,12 +213,9 @@ public class ArtistActivity extends PlayerActivity implements RadioPlayerListene
     public void onPlayTrack(PlayableEntity playableEntity) {
         displayTrack((Track)playableEntity);
     }
-
     @Override
     public void onTrackEnded(PlayableEntity playableEntity) {
-
     }
-
     @Override
     public void onRequestException(Exception e, Object o) {
         handleError(e);

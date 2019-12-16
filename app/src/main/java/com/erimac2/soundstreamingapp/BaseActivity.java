@@ -11,11 +11,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import com.deezer.sdk.network.connect.DeezerConnect;
 import com.deezer.sdk.network.connect.SessionStore;
 import com.erimac2.soundstreamingapp.Lab1.FirstActivity;
 import com.erimac2.soundstreamingapp.Lab2.Lab2Activity;
+import com.erimac2.soundstreamingapp.Lab3.Compass;
+import com.erimac2.soundstreamingapp.Lab3.Lab3Activity;
 
 public class BaseActivity extends AppCompatActivity {
     protected DeezerConnect deezerConnect = null;
@@ -24,6 +27,7 @@ public class BaseActivity extends AppCompatActivity {
 
 
     public static final String applicationID = "372944";
+    public static DatabaseClass database;
 
 
 
@@ -36,6 +40,9 @@ public class BaseActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.appicon);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         deezerConnect = new DeezerConnect(this, applicationID);
+
+        database = Room.databaseBuilder(getApplicationContext(), DatabaseClass.class, getResources().getString(R.string.database_name)).allowMainThreadQueries().build();
+        this.deleteDatabase(getResources().getString(R.string.database_name));
 
     }
 
@@ -70,9 +77,17 @@ public class BaseActivity extends AppCompatActivity {
         else if(item.getItemId() == R.id.logout)
         {
             disconnectFromDeezer();
-
             Intent intent = new Intent(this, LoginActivity.class);
-
+            startActivity(intent);
+        }
+        else if(item.getItemId() == R.id.lab3)
+        {
+            Intent intent = new Intent(this, Lab3Activity.class);
+            startActivity(intent);
+        }
+        else if(item.getItemId() == R.id.compass)
+        {
+            Intent intent = new Intent(this, Compass.class);
             startActivity(intent);
         }
 

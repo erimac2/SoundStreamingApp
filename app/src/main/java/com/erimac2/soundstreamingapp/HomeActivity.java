@@ -3,8 +3,8 @@ package com.erimac2.soundstreamingapp;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,7 +43,7 @@ public class HomeActivity extends BaseActivity {
 
         new SessionStore().restore(deezerConnect, this);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.user_data));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.user_data));
 
         ListView list = findViewById(android.R.id.list);
         image = findViewById(R.id.user_picture);
@@ -131,18 +131,10 @@ public class HomeActivity extends BaseActivity {
         task.execute(request);
     }
     private static final int PLAYLISTS = 0;
-
     private static final int ALBUMS = 1;
-
     private static final int ARTISTS = 2;
-
     private static final int RADIOS = 3;
-
     private static final int TRACKS = 4;
-
-    private static final int FLOW = 5;
-
-    private static final int CUSTOM = 6;
 
     private void userNavigate(final int selection)
     {
@@ -151,8 +143,10 @@ public class HomeActivity extends BaseActivity {
         switch(selection)
         {
             case PLAYLISTS:
+                intent = new Intent(this, PlaylistActivity.class);
                 break;
             case ALBUMS:
+                intent = new Intent(this, AlbumActivity.class);
                 break;
             case ARTISTS:
                 intent = new Intent(this, ArtistActivity.class);
@@ -161,10 +155,7 @@ public class HomeActivity extends BaseActivity {
                 intent = new Intent(this, RadioActivity.class);
                 break;
             case TRACKS:
-                break;
-            case FLOW:
-                break;
-            case CUSTOM:
+                intent = new Intent(this, TrackActivity.class);
                 break;
         }
 
@@ -199,7 +190,6 @@ public class HomeActivity extends BaseActivity {
 
         alert.show();
     }
-
     private void sendNotification(final String notification)
     {
         DeezerRequest request = DeezerRequestFactory.requestCurrentUserSendNotification(notification);
@@ -213,7 +203,6 @@ public class HomeActivity extends BaseActivity {
                     }
                 });
             }
-
             @Override
             public void onException(final Exception exception, final Object requestId) {
                 handleError(exception);

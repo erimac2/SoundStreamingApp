@@ -131,6 +131,8 @@ public class PlayerActivity extends BaseActivity {
         {
             textTrack.setVisibility(View.VISIBLE);
             textTrack.setText(track.getTitle());
+            UserDB userDB = new UserDB(track.getId(), track.getTitle());
+            database.userDao().insert(userDB);
         }
     }
     protected void setPlayerVisible(final boolean visible)
@@ -173,6 +175,7 @@ public class PlayerActivity extends BaseActivity {
         buttonPlayerPause.setEnabled(true);
         buttonPlayerStop.setEnabled(true);
 
+        Log.i("STATE_INCOMING", state.toString());
         switch(state)
         {
             case STARTED:
@@ -189,6 +192,7 @@ public class PlayerActivity extends BaseActivity {
                 showPlayerProgress(0);
                 break;
             case PLAYING:
+                buttonPlayerStop.setEnabled(true);
                 buttonPlayerPause.setEnabled(true);
                 buttonPlayerPause.setImageResource(R.drawable.ic_action_pause);
                 break;
@@ -287,8 +291,10 @@ public class PlayerActivity extends BaseActivity {
             else if(v == buttonPlayerStop)
             {
                 player.stop();
+                showPlayerState(player.getPlayerState());
                 showPlayerProgress(0);
                 showBufferProgress(0);
+                setPlayerVisible(false);
             }
             else if(v == buttonPlayerSkipForward)
             {

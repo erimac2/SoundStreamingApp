@@ -66,6 +66,17 @@
             android:padding="3dp"
             android:text=""
             android:textColor="@color/colorText" />
+        <TextView
+            android:id="@+id/user_time"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date"
+            android:layout_toRightOf="@id/user_picture"
+            android:padding="3dp"
+            android:text=""
+            android:textColor="@color/colorText">
+
+        </TextView>
 
     </RelativeLayout>
 

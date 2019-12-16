@@ -5,6 +5,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
     <application
         android:allowBackup="true"
@@ -17,13 +22,17 @@
             android:screenOrientation="portrait"></activity>
         <activity android:name=".Lab2.Lab2Activity"
             android:screenOrientation="portrait"></activity>
+        <activity android:name=".Lab3.Lab3Activity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Lab3.Compass"
+            android:screenOrientation="portrait"></activity>
         <activity android:name=".Lab1.SecondActivity"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".ArtistActivity"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".ArtistPlayerActivity"
-            android:showOnLockScreen="true"
+        <activity android:name=".AlbumActivity"
+            android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".Lab1.NewItem"
             android:screenOrientation="portrait"></activity>
@@ -34,6 +43,10 @@
         <activity android:name=".PlayerActivity"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".RadioActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".PlaylistActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".TrackActivity"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".LoginActivity"
             android:screenOrientation="portrait">
